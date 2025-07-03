@@ -8,6 +8,7 @@ from langchain.agents import Tool, initialize_agent
 from langchain.callbacks import StreamlitCallbackHandler
 
 ## Set upi the Stramlit app
+
 st.set_page_config(page_title="Text To MAth Problem Solver And Data Serach Assistant",page_icon="🧮")
 st.title("Text To Math Problem Solver Uing Google Gemma 2")
 
@@ -22,7 +23,9 @@ llm=ChatGroq(model="Gemma2-9b-It",groq_api_key=groq_api_key)
 
 
 ## Initializing the tools
+
 wikipedia_wrapper=WikipediaAPIWrapper()
+
 wikipedia_tool=Tool(
     name="Wikipedia",
     func=wikipedia_wrapper.run,
