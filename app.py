@@ -36,6 +36,7 @@ wikipedia_tool=Tool(
 ## Initializa the MAth tool
 
 math_chain=LLMMathChain.from_llm(llm=llm)
+
 calculator=Tool(
     name="Calculator",
     func=math_chain.run,
@@ -55,6 +56,7 @@ prompt_template=PromptTemplate(
 )
 
 ## Combine all the tools into chain
+
 chain=LLMChain(llm=llm,prompt=prompt_template)
 
 reasoning_tool=Tool(
@@ -82,6 +84,7 @@ for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg['content'])
 
 ## LEts start the interaction
+
 question=st.text_area("Enter youe question:","I have 5 bananas and 7 grapes. I eat 2 bananas and give away 3 grapes. Then I buy a dozen apples and 2 packs of blueberries. Each pack of blueberries contains 25 berries. How many total pieces of fruit do I have at the end?")
 
 if st.button("find my answer"):
